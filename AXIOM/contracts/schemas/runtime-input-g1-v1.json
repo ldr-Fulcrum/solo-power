@@ -1,0 +1,184 @@
+{
+  "$defs": {
+    "AuthorizationEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approval Reference"
+        },
+        "domain": {
+          "$ref": "#/$defs/Domain"
+        },
+        "expires_at": {
+          "format": "date-time",
+          "title": "Expires At",
+          "type": "string"
+        },
+        "permitted_scopes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Permitted Scopes",
+          "type": "array"
+        },
+        "principal_id": {
+          "title": "Principal Id",
+          "type": "string"
+        },
+        "session_id": {
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "principal_id",
+        "session_id",
+        "domain",
+        "permitted_scopes",
+        "expires_at"
+      ],
+      "title": "AuthorizationEnvelope",
+      "type": "object"
+    },
+    "Budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_cost_usd": {
+          "anyOf": [
+            {
+              "maximum": 100.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Max Cost Usd"
+        },
+        "max_tokens": {
+          "exclusiveMinimum": 0,
+          "maximum": 100000,
+          "title": "Max Tokens",
+          "type": "integer"
+        },
+        "max_tool_calls": {
+          "maximum": 20,
+          "minimum": 0,
+          "title": "Max Tool Calls",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_tokens",
+        "max_tool_calls",
+        "max_cost_usd"
+      ],
+      "title": "Budget",
+      "type": "object"
+    },
+    "Domain": {
+      "enum": [
+        "bakery",
+        "personal"
+      ],
+      "title": "Domain",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "agent_id": {
+      "title": "Agent Id",
+      "type": "string"
+    },
+    "authorization": {
+      "$ref": "#/$defs/AuthorizationEnvelope"
+    },
+    "budget": {
+      "$ref": "#/$defs/Budget"
+    },
+    "contract_version": {
+      "const": "darla-runtime/1",
+      "default": "darla-runtime/1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "data_classification": {
+      "default": "synthetic",
+      "enum": [
+        "synthetic",
+        "private"
+      ],
+      "title": "Data Classification",
+      "type": "string"
+    },
+    "deadline": {
+      "format": "date-time",
+      "title": "Deadline",
+      "type": "string"
+    },
+    "domain": {
+      "$ref": "#/$defs/Domain"
+    },
+    "goal": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Goal",
+      "type": "string"
+    },
+    "memory_references": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100,
+      "title": "Memory References",
+      "type": "array"
+    },
+    "principal_id": {
+      "title": "Principal Id",
+      "type": "string"
+    },
+    "request_id": {
+      "maxLength": 90,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "task_state": {
+      "additionalProperties": true,
+      "title": "Task State",
+      "type": "object"
+    },
+    "tool_allowlist": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20,
+      "title": "Tool Allowlist",
+      "type": "array"
+    }
+  },
+  "required": [
+    "principal_id",
+    "agent_id",
+    "request_id",
+    "goal",
+    "domain",
+    "tool_allowlist",
+    "authorization",
+    "budget",
+    "deadline"
+  ],
+  "title": "RuntimeInput",
+  "type": "object"
+}

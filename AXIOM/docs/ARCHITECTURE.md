@@ -1,0 +1,15 @@
+# Darla application architecture
+
+The application is independent of Rayzer's agent runtime. FastAPI validates typed inputs; server-bound session policy checks principal, domain and scope; services perform domain changes inside SQLAlchemy transactions; Alembic manages SQLite schema revision 0001. JSON resource records use typed API models and kind/owner/domain indexes. JSON payloads support evolving domain contracts; this is a deliberate local foundation, not a claim that PostgreSQL migrations or production scale have been validated.
+
+SQLite BEGIN IMMEDIATE serializes mutations. An idempotency record binds principal, domain, actor kind, operation, resource and key to the canonical request hash. State, receipt and canonical replay response commit together. A reused key with different arguments fails 409. Memory mutation acknowledgments exclude values, so replay state does not retain deleted memory content.
+
+A finite worker tick coalesces overdue schedules and executes bounded internal task creation. Execution and verified completion occur within one DB transaction. Savepoints roll back partial tool writes. Failures retry with bounded exponential delay and eventually receive an explicit failed receipt. There is no activated continuous scheduler or overnight service. Lease and imported RUNNING recovery are tested; no claim of distributed workers or real runtime recovery is made.
+
+Application receipts contain actor, action, scope, authority class, timestamp, outcome, idempotency key and evidence hash. Private task/message/memory content is excluded. The DB is the durable source of truth. A retryable journal export creates immutable fsynced JSON files; corrupt exports are detected rather than overwritten. Receipt-bridge v0.3 remains separate and unconnected.
+
+Authentication fails closed unless synthetic mode is explicitly enabled. Synthetic sessions are fixed server-side fixtures. Caller identity headers, approval flags, model text and tool output cannot grant permissions. Consequential effects remain disabled even after a fixture approval decision. Production identity/session transport, private-data encryption and policy-approved operational retention remain external readiness dependencies.
+
+Business behavior includes scoped task transitions, proposed capacity-flagged production plans, deterministic Decimal batch scaling, nonbinding order drafts, $500 weekly target and honest missing actual-sales data. Caller-supplied estimates never become verified sales or catalog prices. No actual inventory, pricing, capacity, delivery or order acceptance is invented. Missing integrations remain reported unavailable.
+
+All writes, including dependencies, temporary tests, SQLite state, caches, receipts and reports stay inside AXIOM. The parent Git history is not mutated. Source packet files are preserved and excluded from proposed public packaging.

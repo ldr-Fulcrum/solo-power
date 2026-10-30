@@ -1,0 +1,105 @@
+{
+  "$defs": {
+    "ProposedAction": {
+      "additionalProperties": false,
+      "properties": {
+        "parameters": {
+          "additionalProperties": true,
+          "title": "Parameters",
+          "type": "object"
+        },
+        "provenance_references": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provenance References",
+          "type": "array"
+        },
+        "requested_tool": {
+          "title": "Requested Tool",
+          "type": "string"
+        },
+        "requires_approval": {
+          "default": false,
+          "title": "Requires Approval",
+          "type": "boolean"
+        },
+        "status": {
+          "const": "PROPOSED",
+          "default": "PROPOSED",
+          "title": "Status",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requested_tool",
+        "parameters",
+        "summary"
+      ],
+      "title": "ProposedAction",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ProposedAction"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "actor_id": {
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "checkpoint": {
+      "additionalProperties": true,
+      "title": "Checkpoint",
+      "type": "object"
+    },
+    "contract_version": {
+      "const": "darla-runtime/1",
+      "default": "darla-runtime/1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "error_classification": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Classification"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "test_double": {
+      "default": false,
+      "title": "Test Double",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "request_id",
+    "actor_id"
+  ],
+  "title": "RuntimeResult",
+  "type": "object"
+}

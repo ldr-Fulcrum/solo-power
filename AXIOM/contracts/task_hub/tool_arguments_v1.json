@@ -1,0 +1,308 @@
+{
+  "tools": [
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "idempotency_key": {
+            "maxLength": 128,
+            "minLength": 8,
+            "pattern": "^[A-Za-z0-9._:\\-]+$",
+            "type": "string"
+          },
+          "task_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "version": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "task_id",
+          "idempotency_key"
+        ],
+        "type": "object"
+      },
+      "name": "claim_task"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "Equipment",
+              "Customer",
+              "Safety",
+              "Product",
+              "Staff",
+              "Other"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 128,
+            "minLength": 8,
+            "pattern": "^[A-Za-z0-9._:\\-]+$",
+            "type": "string"
+          },
+          "linked_equipment_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "linked_task_instance_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "location_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "severity": {
+            "enum": [
+              "Low",
+              "Medium",
+              "High"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "description",
+          "idempotency_key"
+        ],
+        "type": "object"
+      },
+      "name": "create_incident"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "format": "date",
+            "type": "string"
+          },
+          "location_id": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "get_dashboard"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "name": "get_task"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "location_id": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "list_equipment"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "format": "date",
+            "type": "string"
+          },
+          "location_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "Open",
+              "In Progress",
+              "Resolved",
+              "Archived"
+            ],
+            "type": "string"
+          },
+          "to": {
+            "format": "date",
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "list_incidents"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "assigned_to_me": {
+            "type": "boolean"
+          },
+          "cursor": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "date": {
+            "format": "date",
+            "type": "string"
+          },
+          "limit": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "location_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Done",
+              "Blocked",
+              "Waived"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "list_tasks"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "cost": {
+            "maximum": 1000000,
+            "minimum": 0,
+            "type": "number"
+          },
+          "date": {
+            "format": "date",
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          },
+          "equipment_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "idempotency_key": {
+            "maxLength": 128,
+            "minLength": 8,
+            "pattern": "^[A-Za-z0-9._:\\-]+$",
+            "type": "string"
+          },
+          "notes": {
+            "maxLength": 2000,
+            "type": "string"
+          },
+          "vendor_name": {
+            "maxLength": 120,
+            "type": "string"
+          }
+        },
+        "required": [
+          "equipment_id",
+          "description",
+          "idempotency_key"
+        ],
+        "type": "object"
+      },
+      "name": "log_maintenance"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "idempotency_key": {
+            "maxLength": 128,
+            "minLength": 8,
+            "pattern": "^[A-Za-z0-9._:\\-]+$",
+            "type": "string"
+          },
+          "notes": {
+            "maxLength": 2000,
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Done",
+              "Blocked",
+              "Waived"
+            ],
+            "type": "string"
+          },
+          "task_id": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "version": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "task_id",
+          "status",
+          "version",
+          "idempotency_key"
+        ],
+        "type": "object"
+      },
+      "name": "update_task_status"
+    },
+    {
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "whoami"
+    }
+  ]
+}

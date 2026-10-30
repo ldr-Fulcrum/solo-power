@@ -1,0 +1,28 @@
+# Private source packet (unpacked directly in AXIOM).
+sources/
+references/
+requests/
+tracking/
+00_SOURCE_PACKET/
+*.zip
+ARC-darling.md
+CLAUDE_ARC_STARTER.md
+ENGINEERING_EXECUTION_CONTRACT.md
+MISSION_ALIGNMENT.md
+SECURITY_AND_PROVENANCE.md
+SOURCE_INDEX.md
+START_HERE.md
+MANIFEST.json
+CHECKSUMS.sha256
+.local/
+.venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.env*
+!.env.example
+frontend/dist/
+# Reports can contain local paths; review before any publication.
+reports/

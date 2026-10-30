@@ -1,0 +1,33 @@
+domain,method,route,purpose,required_scope_candidate,effect_class,contract_or_test_notes
+SYSTEM,GET,/health/live,Process liveness,public-safe dev route,none,Process and status only
+SYSTEM,GET,/health/ready,Dependency readiness,appropriate operator access,none,Unavailable runtime must not be reported ready
+SYSTEM,GET,/api/v1/system/capabilities,Capability truth table,authenticated,none,Mock vs live clear
+SYSTEM,GET,/api/v1/integrations,Integration states,authenticated,none,No fabricated integrations
+AGENT,GET,/api/v1/agent/status,Runtime health,authenticated,none,Rayzer live status gate
+ASSISTANT,POST,/api/v1/assistant/messages,Conversation turn,principal-scoped,potential task proposal,No fake live inference
+ASSISTANT,GET,/api/v1/assistant/threads/{thread_id},Conversation metadata,principal-scoped,none,No cross-principal access
+BAKERY,GET,/api/v1/bakery/goals/weekly,$500 goal and verified sales,business-read,none,Draft orders not sales
+BAKERY,POST,/api/v1/bakery/plans,Draft bakery plan,business-plan,draft only,Capacity guarded
+BAKERY,GET,/api/v1/bakery/plans/{plan_id},Plan status,business-read,none,Report true state
+BAKERY,GET,/api/v1/bakery/products,Product records,business-read,none,Unknown price unresolved
+BAKERY,POST,/api/v1/bakery/batch-plans,Recipe batch proposal,business-plan,draft only,Deterministic math and provenance
+ORDERS,GET,/api/v1/orders,Read orders,business-read,none,Synthetic fixture identified
+ORDERS,POST,/api/v1/orders/drafts,Create draft,business-draft,draft only,No auto-acceptance
+TASKS,GET,/api/v1/tasks,List tasks,task-read,none,Scope filtering
+TASKS,POST,/api/v1/tasks,Create task,task-write,internal state,Authority and receipt
+TASKS,GET,/api/v1/tasks/{task_id},Get task,task-read,none,Owner checks
+TASKS,PATCH,/api/v1/tasks/{task_id},Change task,task-write,internal state,Transition validation
+RUNS,POST,/api/v1/runs,Start queued work,run-create,durable job,No false completion
+RUNS,GET,/api/v1/runs,List runs,run-read,none,Status truth
+RUNS,GET,/api/v1/runs/{run_id},Get run,run-read,none,Checkpoint and evidence
+RUNS,POST,/api/v1/runs/{run_id}/cancel,Cancel work,run-control,control state,Idempotent cancellation
+SCHEDULES,GET,/api/v1/schedules,Read schedules,schedule-read,none,Durable jobs
+SCHEDULES,POST,/api/v1/schedules,Create schedule,schedule-write,durable state,Worker readiness separate
+APPROVALS,GET,/api/v1/approvals,List pending approvals,principal-scoped,none,Never imply approval
+APPROVALS,GET,/api/v1/approvals/{approval_id},Get approval,principal-scoped,none,Principal identity check
+APPROVALS,POST,/api/v1/approvals/{approval_id}/decision,Decide approval,principal-only,consequential,Backend authority enforcement
+RECEIPTS,GET,/api/v1/receipts,List app receipts,receipt-read,none,Not external bridge
+RECEIPTS,GET,/api/v1/receipts/{receipt_id},Get app receipt,receipt-read,none,Redacted scope
+MEMORY,GET,/api/v1/memory,Review memory,principal-scoped,none,Privacy boundaries
+MEMORY,PATCH,/api/v1/memory/{memory_id},Correct memory,principal-only,durable state,Correction visible after restart
+MEMORY,DELETE,/api/v1/memory/{memory_id},Delete memory,principal-only,durable state,Deletion & recovery semantics

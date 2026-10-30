@@ -1,0 +1,62 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_reference": {
+      "anyOf": [
+        {
+          "maxLength": 200,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Checkpoint Reference"
+    },
+    "error_classification": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Classification"
+    },
+    "event_id": {
+      "maxLength": 90,
+      "minLength": 1,
+      "title": "Event Id",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "CHECKPOINT",
+        "ERROR"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "request_id": {
+      "maxLength": 90,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "request_id",
+    "event_id",
+    "kind"
+  ],
+  "title": "RuntimeEvent",
+  "type": "object"
+}

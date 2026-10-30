@@ -1,0 +1,21 @@
+{
+  "version": "darla-server-bind/1",
+  "entrypoint": "python -B -m backend.app.serve",
+  "bind_host_environment": "DARLA_BIND_HOST",
+  "default_bind_host": "127.0.0.1",
+  "port": 8765,
+  "wildcard_binding_allowed": false,
+  "nondefault_bind_class": "explicit RFC1918 IPv4 literal, synthetic mode only",
+  "docker_host_opt_in_environment": "DARLA_ALLOW_DOCKER_HOST",
+  "docker_host_opt_in_value": "1",
+  "docker_host_default_allowed": false,
+  "docker_host_when_enabled": "host.docker.internal",
+  "synthetic_mode_required_for_opt_in": true,
+  "agent_bearer_fixture": "synthetic-agent-bakery",
+  "cors_enabled": false,
+  "trusted_proxy_headers": false,
+  "route_activation": "PENDING_EXPLICIT_LDR_GO",
+  "recommended_candidate_bind_host": "172.18.208.1",
+  "candidate_source": "Observed Windows vEthernet (WSL (Hyper-V firewall)); recheck after network restart",
+  "host_docker_internal_reachability": "NOT_VERIFIED"
+}

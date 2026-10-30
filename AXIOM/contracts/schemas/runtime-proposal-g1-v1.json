@@ -1,0 +1,306 @@
+{
+  "$defs": {
+    "AuthorizationEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approval Reference"
+        },
+        "domain": {
+          "$ref": "#/$defs/Domain"
+        },
+        "expires_at": {
+          "format": "date-time",
+          "title": "Expires At",
+          "type": "string"
+        },
+        "permitted_scopes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Permitted Scopes",
+          "type": "array"
+        },
+        "principal_id": {
+          "title": "Principal Id",
+          "type": "string"
+        },
+        "session_id": {
+          "title": "Session Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "principal_id",
+        "session_id",
+        "domain",
+        "permitted_scopes",
+        "expires_at"
+      ],
+      "title": "AuthorizationEnvelope",
+      "type": "object"
+    },
+    "Budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_cost_usd": {
+          "anyOf": [
+            {
+              "maximum": 100.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Max Cost Usd"
+        },
+        "max_tokens": {
+          "exclusiveMinimum": 0,
+          "maximum": 100000,
+          "title": "Max Tokens",
+          "type": "integer"
+        },
+        "max_tool_calls": {
+          "maximum": 20,
+          "minimum": 0,
+          "title": "Max Tool Calls",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_tokens",
+        "max_tool_calls",
+        "max_cost_usd"
+      ],
+      "title": "Budget",
+      "type": "object"
+    },
+    "Domain": {
+      "enum": [
+        "bakery",
+        "personal"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "ProposedAction": {
+      "additionalProperties": false,
+      "properties": {
+        "parameters": {
+          "additionalProperties": true,
+          "title": "Parameters",
+          "type": "object"
+        },
+        "provenance_references": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provenance References",
+          "type": "array"
+        },
+        "requested_tool": {
+          "title": "Requested Tool",
+          "type": "string"
+        },
+        "requires_approval": {
+          "default": false,
+          "title": "Requires Approval",
+          "type": "boolean"
+        },
+        "status": {
+          "const": "PROPOSED",
+          "default": "PROPOSED",
+          "title": "Status",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requested_tool",
+        "parameters",
+        "summary"
+      ],
+      "title": "ProposedAction",
+      "type": "object"
+    },
+    "RuntimeInput": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "authorization": {
+          "$ref": "#/$defs/AuthorizationEnvelope"
+        },
+        "budget": {
+          "$ref": "#/$defs/Budget"
+        },
+        "contract_version": {
+          "const": "darla-runtime/1",
+          "default": "darla-runtime/1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "data_classification": {
+          "default": "synthetic",
+          "enum": [
+            "synthetic",
+            "private"
+          ],
+          "title": "Data Classification",
+          "type": "string"
+        },
+        "deadline": {
+          "format": "date-time",
+          "title": "Deadline",
+          "type": "string"
+        },
+        "domain": {
+          "$ref": "#/$defs/Domain"
+        },
+        "goal": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Goal",
+          "type": "string"
+        },
+        "memory_references": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Memory References",
+          "type": "array"
+        },
+        "principal_id": {
+          "title": "Principal Id",
+          "type": "string"
+        },
+        "request_id": {
+          "maxLength": 90,
+          "minLength": 1,
+          "title": "Request Id",
+          "type": "string"
+        },
+        "task_state": {
+          "additionalProperties": true,
+          "title": "Task State",
+          "type": "object"
+        },
+        "tool_allowlist": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Tool Allowlist",
+          "type": "array"
+        }
+      },
+      "required": [
+        "principal_id",
+        "agent_id",
+        "request_id",
+        "goal",
+        "domain",
+        "tool_allowlist",
+        "authorization",
+        "budget",
+        "deadline"
+      ],
+      "title": "RuntimeInput",
+      "type": "object"
+    },
+    "RuntimeResult": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProposedAction"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "actor_id": {
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "checkpoint": {
+          "additionalProperties": true,
+          "title": "Checkpoint",
+          "type": "object"
+        },
+        "contract_version": {
+          "const": "darla-runtime/1",
+          "default": "darla-runtime/1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "error_classification": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error Classification"
+        },
+        "request_id": {
+          "maxLength": 90,
+          "minLength": 1,
+          "title": "Request Id",
+          "type": "string"
+        },
+        "test_double": {
+          "default": false,
+          "title": "Test Double",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "request_id",
+        "actor_id"
+      ],
+      "title": "RuntimeResult",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "input": {
+      "$ref": "#/$defs/RuntimeInput"
+    },
+    "result": {
+      "$ref": "#/$defs/RuntimeResult"
+    }
+  },
+  "required": [
+    "input",
+    "result"
+  ],
+  "title": "RuntimeProposal",
+  "type": "object"
+}

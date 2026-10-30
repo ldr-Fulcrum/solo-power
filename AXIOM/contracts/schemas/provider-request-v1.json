@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "configured_model": {
+      "title": "Configured Model",
+      "type": "string"
+    },
+    "context_reference": {
+      "title": "Context Reference",
+      "type": "string"
+    },
+    "endpoint_identity": {
+      "title": "Endpoint Identity",
+      "type": "string"
+    },
+    "max_tokens": {
+      "exclusiveMinimum": 0,
+      "maximum": 100000,
+      "title": "Max Tokens",
+      "type": "integer"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "timeout_seconds": {
+      "maximum": 120,
+      "minimum": 1,
+      "title": "Timeout Seconds",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "request_id",
+    "configured_model",
+    "endpoint_identity",
+    "timeout_seconds",
+    "max_tokens",
+    "context_reference"
+  ],
+  "title": "ProviderRequest",
+  "type": "object"
+}

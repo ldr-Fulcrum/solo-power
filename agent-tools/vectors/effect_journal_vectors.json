@@ -1,0 +1,1091 @@
+{
+ "chain_vector": {
+  "entries": [
+   {
+    "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+    "call_id": "c1",
+    "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+    "journal_id": "j-test-0001",
+    "kind": "RESERVE",
+    "outcome": null,
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "ref": null,
+    "result_hash": null,
+    "seq": 1,
+    "tool": "task.create",
+    "ts": "2026-10-28T10:00:00.000Z",
+    "v": 1
+   },
+   {
+    "args_hash": null,
+    "call_id": "c1",
+    "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+    "journal_id": "j-test-0001",
+    "kind": "SEAL",
+    "outcome": "OK",
+    "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+    "ref": 1,
+    "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+    "seq": 2,
+    "tool": "task.create",
+    "ts": "2026-10-28T10:00:01.000Z",
+    "v": 1
+   },
+   {
+    "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+    "call_id": "c2",
+    "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+    "journal_id": "j-test-0001",
+    "kind": "RESERVE",
+    "outcome": null,
+    "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+    "ref": null,
+    "result_hash": null,
+    "seq": 3,
+    "tool": "plan.create",
+    "ts": "2026-10-28T10:00:02.000Z",
+    "v": 1
+   },
+   {
+    "args_hash": null,
+    "call_id": "c2",
+    "entry_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+    "journal_id": "j-test-0001",
+    "kind": "SEAL",
+    "outcome": "ERROR",
+    "prev_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+    "ref": 3,
+    "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+    "seq": 4,
+    "tool": "plan.create",
+    "ts": "2026-10-28T10:00:03.000Z",
+    "v": 1
+   }
+  ],
+  "journal_id": "j-test-0001"
+ },
+ "genesis_prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+ "hash_vectors": [
+  {
+   "canonical": "{\"a\":\"x\",\"b\":1}",
+   "input": {
+    "a": "x",
+    "b": 1
+   },
+   "sha256": "cdab067e9f3beb32d1252cfd63e492592fecbf591b0d08cadb24bb17f3864246"
+  },
+  {
+   "canonical": "{\"k\":null,\"z\":[1,2,{\"y\":\"é\"}]}",
+   "input": {
+    "k": null,
+    "z": [
+     1,
+     2,
+     {
+      "y": "é"
+     }
+    ]
+   },
+   "sha256": "d53d4a490500f5664635ddd21bcbab2d5bd1fec6b0dc8930f1b264004227f48a"
+  },
+  {
+   "canonical": "{\"s\":\"line\\nbreak \\\"q\\\"\"}",
+   "input": {
+    "s": "line\nbreak \"q\""
+   },
+   "sha256": "559cf9432fc67c895772affdba51a5cfb3e62ca51940c09883d92d0a6edf6334"
+  }
+ ],
+ "spec": "effect-journal/1",
+ "verify_cases": [
+  {
+   "anchors": [
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c2",
+     "entry_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "ERROR",
+     "prev_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "ref": 3,
+     "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+     "seq": 4,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:03.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [],
+    "ok": true
+   },
+   "grace_seconds": 300,
+   "name": "clean-anchored-at-head",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.delete",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c2",
+     "entry_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "ERROR",
+     "prev_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "ref": 3,
+     "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+     "seq": 4,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:03.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "BAD_HASH",
+      2,
+      "ERROR"
+     ],
+     [
+      "BAD_LINK",
+      3,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "edit-field-no-rehash",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "9bdf58d78d023a0de81fa4896beff173ba043e4379980abb92fd2cfc00c09d90",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.delete",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c2",
+     "entry_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "ERROR",
+     "prev_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "ref": 3,
+     "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+     "seq": 4,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:03.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "BAD_LINK",
+      3,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "edit-field-rehash-entry-only",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "0773c2a19087a7457ca4625ce8d35cc9f830a35ece93856a2d14ce0f47414db0",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.delete",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "34951a3a92651555d5b3b8eb43407929e524e3192f50a6cc010c6b95b0ebda13",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "0773c2a19087a7457ca4625ce8d35cc9f830a35ece93856a2d14ce0f47414db0",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "70145cc45ed9f099cc060e33e33cca431a6019f6bc3624483bcdd0d8f6a5f85a",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "34951a3a92651555d5b3b8eb43407929e524e3192f50a6cc010c6b95b0ebda13",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c2",
+     "entry_hash": "0ac657397da5e191212920fb2467c77a89a8e627d85077cf0f0e816a248552ab",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "ERROR",
+     "prev_hash": "70145cc45ed9f099cc060e33e33cca431a6019f6bc3624483bcdd0d8f6a5f85a",
+     "ref": 3,
+     "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+     "seq": 4,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:03.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "TAMPER",
+      4,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "rebuilt-chain-caught-by-anchor",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c2",
+     "entry_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "ERROR",
+     "prev_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "ref": 3,
+     "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+     "seq": 4,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:03.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "UNSEALED",
+      1,
+      "WARN"
+     ],
+     [
+      "BAD_LINK",
+      3,
+      "ERROR"
+     ],
+     [
+      "SEQ_GAP",
+      3,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "delete-middle-entry",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "TRUNCATION",
+      4,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "truncate-tail-caught-by-anchor",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [],
+    "ok": true
+   },
+   "grace_seconds": 300,
+   "name": "truncate-tail-no-anchor-undetectable",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c2",
+     "entry_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "ERROR",
+     "prev_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "ref": 3,
+     "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+     "seq": 4,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:03.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "BAD_LINK",
+      2,
+      "ERROR"
+     ],
+     [
+      "SEQ_GAP",
+      2,
+      "ERROR"
+     ],
+     [
+      "BAD_LINK",
+      3,
+      "ERROR"
+     ],
+     [
+      "SEQ_GAP",
+      3,
+      "ERROR"
+     ],
+     [
+      "BAD_LINK",
+      4,
+      "ERROR"
+     ],
+     [
+      "SEQ_GAP",
+      4,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "reorder-two-entries",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "seq": 3
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "UNSEALED",
+      3,
+      "WARN"
+     ]
+    ],
+    "ok": true
+   },
+   "grace_seconds": 300,
+   "name": "unsealed-after-grace",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "seq": 3
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [],
+    "ok": true
+   },
+   "grace_seconds": 300,
+   "name": "unsealed-within-grace",
+   "now": "2026-10-28T10:03:00.000Z"
+  },
+  {
+   "anchors": [],
+   "entries": [
+    {
+     "args_hash": null,
+     "call_id": "c9",
+     "entry_hash": "b06cfc567dba251d31cc94674ee1a28fac808db7e0f59f3aadc081114c7564be",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "ORPHAN_SEAL",
+      1,
+      "WARN"
+     ]
+    ],
+    "ok": true
+   },
+   "grace_seconds": 300,
+   "name": "orphan-seal",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "5eae93758ab037a7c82c8075b35d0d70ad532df6ff6b891bc751d62feb882a3d",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 3,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "BAD_SEAL",
+      3,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "duplicate-seal",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "165d581f30f47c340cb8043328cdaf050f37ca455c0af3915df87a3c0e0f5757",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 7,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "UNSEALED",
+      1,
+      "WARN"
+     ],
+     [
+      "BAD_SEAL",
+      2,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "seal-bad-ref",
+   "now": "2026-10-28T10:10:00.000Z"
+  },
+  {
+   "anchors": [
+    {
+     "head_hash": "2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881",
+     "journal_id": "j-test-0001",
+     "seq": 2
+    },
+    {
+     "head_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "seq": 4
+    }
+   ],
+   "entries": [
+    {
+     "args_hash": "92ed19f9a12b624d40167ddf2e5f9fac3fff30924add5f244675ed8bf6d28d30",
+     "call_id": "c1",
+     "entry_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+     "ref": null,
+     "result_hash": null,
+     "seq": 1,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:00.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c1",
+     "entry_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "OK",
+     "prev_hash": "b11fa0ce8660fc92f8bab18766e285d1bb54ab8aa1f93760a359c23263cf44ae",
+     "ref": 1,
+     "result_hash": "84db80aea1c9efdf9780191c37db919c78aef24a63eba74ef9c8cbc2a8186c89",
+     "seq": 2,
+     "tool": "task.create",
+     "ts": "2026-10-28T10:00:01.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": "d47f22aab2f2b7343b0c8d374ee4bbfd7fb3820bb1ad0f742dbec8cbbb65fb28",
+     "call_id": "c2",
+     "entry_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "journal_id": "j-test-0001",
+     "kind": "RESERVE",
+     "outcome": null,
+     "prev_hash": "0a6d4f0424b87413a8dbe89d7d97f18269abee0f19dbaba0522cc1f9d8d55a0a",
+     "ref": null,
+     "result_hash": null,
+     "seq": 3,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:02.000Z",
+     "v": 1
+    },
+    {
+     "args_hash": null,
+     "call_id": "c2",
+     "entry_hash": "f8447be84de5d62b94de983b4f8285f077a508d51e6a958b9108b1fcdd18b936",
+     "journal_id": "j-test-0001",
+     "kind": "SEAL",
+     "outcome": "ERROR",
+     "prev_hash": "99e6170973227a1e484a62163a6ec2310aba5559d5af8850ff8ab955c798228f",
+     "ref": 3,
+     "result_hash": "1a57a3ff80e77edfddefc0f7e273cef993eb378387bd7ba5a45b8ac1d9a2fb40",
+     "seq": 4,
+     "tool": "plan.create",
+     "ts": "2026-10-28T10:00:03.000Z",
+     "v": 1
+    }
+   ],
+   "expected": {
+    "findings": [
+     [
+      "TAMPER",
+      2,
+      "ERROR"
+     ]
+    ],
+    "ok": false
+   },
+   "grace_seconds": 300,
+   "name": "anchor-mismatch-mid-chain",
+   "now": "2026-10-28T10:10:00.000Z"
+  }
+ ]
+}

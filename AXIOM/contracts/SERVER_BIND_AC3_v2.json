@@ -1,0 +1,29 @@
+{
+  "version": "darla-server-bind/2",
+  "entrypoint": "python -B -m backend.app.serve",
+  "bind_host_environment": "DARLA_BIND_HOST",
+  "default_bind_host": "127.0.0.1",
+  "port": 8765,
+  "wildcard_binding_allowed": false,
+  "nondefault_bind_class": "explicit RFC1918 IPv4 literal, synthetic mode only",
+  "docker_host_opt_in_environment": "DARLA_ALLOW_DOCKER_HOST",
+  "docker_host_opt_in_value": "1",
+  "docker_host_default_allowed": false,
+  "docker_host_when_enabled": "host.docker.internal",
+  "synthetic_mode_required_for_opt_in": true,
+  "agent_bearer_fixture": "synthetic-agent-bakery",
+  "cors_enabled": false,
+  "trusted_proxy_headers": false,
+  "route_activation": "Use existing LDR-authorized normal-user process; this patch does not restart a server",
+  "recommended_candidate_bind_host": "127.0.0.1",
+  "candidate_source": "User-relayed Rayzer sandbox proxy finding: actual route requires Windows loopback; previous 172.18.208.1 recommendation withdrawn for this route",
+  "host_docker_internal_reachability": "NOT_VERIFIED",
+  "supersedes": "contracts/SERVER_BIND_AC3_v1.json",
+  "allowed_proxy_hosts_when_enabled": [
+    "host.docker.internal",
+    "host.openshell.internal"
+  ],
+  "proxy_supplied_host": "host.openshell.internal:8765",
+  "proxy_host_override": "User reports proxy overwrites caller Host header",
+  "host_openshell_internal_reachability": "NOT_VERIFIED_FROM_SANDBOX_BY_ARC"
+}
